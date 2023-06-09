@@ -1,6 +1,7 @@
 import {  useEffect,useState } from "react";
 
 const useData = () => {
+    // slider data
 const [slider,setSlider]=useState([])
 const [loader,setLoader]=useState(true)
 
@@ -13,6 +14,9 @@ setLoader(false)
 
 })
 },[])
+// popular class data
+
+
 
 
 return [slider,loader]

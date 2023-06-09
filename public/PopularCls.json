@@ -1,0 +1,40 @@
+ [
+      {
+        "id": 1,
+        "class_name": "Class A",
+        "image": "https://i.ibb.co/7g5fCmS/pexels-patrick-case-3628912-1.jpg",
+        "description": "This is the description for data 1."
+      },
+      {
+        "id": 2,
+        "class_name": "Class B",
+        "image": "https://i.ibb.co/7g5fCmS/pexels-patrick-case-3628912-1.jpg",
+        "description": "This is the description for data 2."
+      },
+      {
+        "id": 3,
+        "class_name": "Class C",
+        "image": "https://i.ibb.co/7g5fCmS/pexels-patrick-case-3628912-1.jpg",
+        "description": "This is the description for data 3."
+      },
+      {
+        "id": 4,
+        "class_name": "Class D",
+        "image": "https://i.ibb.co/7g5fCmS/pexels-patrick-case-3628912-1.jpg",
+        "description": "This is the description for data 4."
+      },
+      {
+        "id": 5,
+        "class_name": "Class E",
+        "image": "https://i.ibb.co/7g5fCmS/pexels-patrick-case-3628912-1.jpg",
+        "description": "This is the description for data 5."
+      },
+      {
+        "id": 6,
+        "class_name": "Class F",
+        "image": "https://i.ibb.co/7g5fCmS/pexels-patrick-case-3628912-1.jpg",
+        "description": "This is the description for data 6."
+      }
+    ]
+  
+  

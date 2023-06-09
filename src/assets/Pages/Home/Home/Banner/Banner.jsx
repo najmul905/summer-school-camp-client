@@ -8,7 +8,7 @@ import useData from "../../../../../Hooks/UseData/useData";
 
 const Banner = () => {
 const [slider]=useData()
-console.log(slider)
+// console.log(slider)
 
 
 
