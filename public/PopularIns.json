@@ -1,0 +1,40 @@
+ [
+      {
+        "id": 1,
+        "name": "Data 1",
+        "image": "https://media.istockphoto.com/id/1479362264/photo/young-asian-business-man-using-laptop-computer-and-looking-at-camera-isolated-on-blue.webp?b=1&s=170667a&w=0&k=20&c=De4cyKfxGUMjVPCDX0sidR6TWJZ5CJGDo-OXrgT82Yo=",
+        "details": "These are the details for data 1."
+      },
+      {
+        "id": 2,
+        "name": "Data 2",
+        "image": "https://media.istockphoto.com/id/1479362264/photo/young-asian-business-man-using-laptop-computer-and-looking-at-camera-isolated-on-blue.webp?b=1&s=170667a&w=0&k=20&c=De4cyKfxGUMjVPCDX0sidR6TWJZ5CJGDo-OXrgT82Yo=",
+        "details": "These are the details for data 2."
+      },
+      {
+        "id": 3,
+        "name": "Data 3",
+        "image": "https://media.istockphoto.com/id/1479362264/photo/young-asian-business-man-using-laptop-computer-and-looking-at-camera-isolated-on-blue.webp?b=1&s=170667a&w=0&k=20&c=De4cyKfxGUMjVPCDX0sidR6TWJZ5CJGDo-OXrgT82Yo=",
+        "details": "These are the details for data 3."
+      },
+      {
+        "id": 4,
+        "name": "Data 4",
+        "image": "https://media.istockphoto.com/id/1479362264/photo/young-asian-business-man-using-laptop-computer-and-looking-at-camera-isolated-on-blue.webp?b=1&s=170667a&w=0&k=20&c=De4cyKfxGUMjVPCDX0sidR6TWJZ5CJGDo-OXrgT82Yo=",
+        "details": "These are the details for data 4."
+      },
+      {
+        "id": 5,
+        "name": "Data 5",
+        "image": "https://media.istockphoto.com/id/1479362264/photo/young-asian-business-man-using-laptop-computer-and-looking-at-camera-isolated-on-blue.webp?b=1&s=170667a&w=0&k=20&c=De4cyKfxGUMjVPCDX0sidR6TWJZ5CJGDo-OXrgT82Yo=",
+        "details": "These are the details for data 5."
+      },
+      {
+        "id": 6,
+        "name": "Data 6",
+        "image": "https://media.istockphoto.com/id/1479362264/photo/young-asian-business-man-using-laptop-computer-and-looking-at-camera-isolated-on-blue.webp?b=1&s=170667a&w=0&k=20&c=De4cyKfxGUMjVPCDX0sidR6TWJZ5CJGDo-OXrgT82Yo=",
+        "details": "These are the details for data 6."
+      }
+    ]
+  
+  

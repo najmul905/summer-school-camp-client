@@ -14,6 +14,10 @@ import React from 'react';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <HelmetProvider> <RouterProvider router={router} /></HelmetProvider>
+    <HelmetProvider> 
+    <div className='bg-blue-200'>
+    <RouterProvider router={router} />
+    </div>
+      </HelmetProvider>
   </React.StrictMode>,
 )

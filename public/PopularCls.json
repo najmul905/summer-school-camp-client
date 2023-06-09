@@ -2,37 +2,37 @@
       {
         "id": 1,
         "class_name": "Class A",
-        "image": "https://i.ibb.co/7g5fCmS/pexels-patrick-case-3628912-1.jpg",
+        "image": "https://images.unsplash.com/photo-1593766787879-e8c78e09cbbe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y3JpY2tldCUyMHNwb3J0c3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
         "description": "This is the description for data 1."
       },
       {
         "id": 2,
         "class_name": "Class B",
-        "image": "https://i.ibb.co/7g5fCmS/pexels-patrick-case-3628912-1.jpg",
+        "image": "https://images.unsplash.com/photo-1593766787879-e8c78e09cbbe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y3JpY2tldCUyMHNwb3J0c3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
         "description": "This is the description for data 2."
       },
       {
         "id": 3,
         "class_name": "Class C",
-        "image": "https://i.ibb.co/7g5fCmS/pexels-patrick-case-3628912-1.jpg",
+        "image": "https://images.unsplash.com/photo-1593766787879-e8c78e09cbbe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y3JpY2tldCUyMHNwb3J0c3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
         "description": "This is the description for data 3."
       },
       {
         "id": 4,
         "class_name": "Class D",
-        "image": "https://i.ibb.co/7g5fCmS/pexels-patrick-case-3628912-1.jpg",
+        "image": "https://images.unsplash.com/photo-1593766787879-e8c78e09cbbe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y3JpY2tldCUyMHNwb3J0c3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
         "description": "This is the description for data 4."
       },
       {
         "id": 5,
         "class_name": "Class E",
-        "image": "https://i.ibb.co/7g5fCmS/pexels-patrick-case-3628912-1.jpg",
+        "image": "https://images.unsplash.com/photo-1593766787879-e8c78e09cbbe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y3JpY2tldCUyMHNwb3J0c3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
         "description": "This is the description for data 5."
       },
       {
         "id": 6,
         "class_name": "Class F",
-        "image": "https://i.ibb.co/7g5fCmS/pexels-patrick-case-3628912-1.jpg",
+        "image": "https://images.unsplash.com/photo-1593766787879-e8c78e09cbbe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y3JpY2tldCUyMHNwb3J0c3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60",
         "description": "This is the description for data 6."
       }
     ]

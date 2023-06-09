@@ -7,7 +7,9 @@ const Populercls = () => {
 //    const {id,name,image,description}=popularCls
     
     return (
-        <div className="grid grid-cols-3 max-auto">
+       <div>
+        <h1>This is Popular class section</h1>
+         <div className="grid grid-cols-3 max-auto">
            {
 popularCls.map(data=><div key={data.id}>
 
@@ -27,6 +29,7 @@ popularCls.map(data=><div key={data.id}>
 </div>)
            }
         </div>
+       </div>
     );
 };
 
