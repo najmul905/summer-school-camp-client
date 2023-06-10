@@ -1,6 +1,20 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Login = () => {
+    const {logIn}=useContext(AuthContext)
+
+const handelLogIn=(event)=>{
+    event.preventDefault();
+    const form=event.target;
+    const email=form.email.value;
+    const password=form.password.value
+    logIn(email,password)
+    .then(res=>console.log(res.user))
+    .catch(error=>console.log(error.message))
+}
+
     return (
         <div>
            <div className="hero min-h-screen bg-base-200">
@@ -10,18 +24,18 @@ const Login = () => {
       <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
     </div>
     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-      <form className="card-body">
+      <form onSubmit={handelLogIn} className="card-body">
         <div className="form-control">
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-          <input type="text" placeholder="email" className="input input-bordered" />
+          <input type="text" name="email" required placeholder="email" className="input input-bordered" />
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="text" placeholder="password" className="input input-bordered" />
+          <input type="password" name="password" required placeholder="password" className="input input-bordered" />
           <label className="label">
             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
           </label>
@@ -29,11 +43,14 @@ const Login = () => {
         <div className="form-control mt-6">
           <button className="btn btn-primary">Login</button>
         </div>
+        <div>
+            <h1>If You are in new ..<Link className="font-bold text-orange-300" to="/singUp"><a href="">create a new account</a></Link>
+</h1>
+        </div>
       </form>
     </div>
   </div>
 </div>
-            <Link to="/singUp"><a href="">create a new account</a></Link>
         </div>
     );
 };
