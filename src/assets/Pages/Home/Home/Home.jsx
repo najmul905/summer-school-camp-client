@@ -2,7 +2,10 @@ import { Helmet} from 'react-helmet-async';
 import Banner from './Banner/Banner';
 import Populercls from './PopularClass/Populercls';
 import PopulerIns from './PopulerInstractor/PopulerIns';
+
 const Home = () => {
+
+
     return (
         <div>
 <Helmet>
