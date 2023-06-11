@@ -1,9 +1,14 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Login = () => {
     const {logIn}=useContext(AuthContext)
+
+    const navigate=useNavigate()
+    const location=useLocation()
+    const from=location.state?.form?.pathname || '/'
+    console.log(location)
 
 const handelLogIn=(event)=>{
     event.preventDefault();
@@ -11,8 +16,13 @@ const handelLogIn=(event)=>{
     const email=form.email.value;
     const password=form.password.value
     logIn(email,password)
-    .then(res=>console.log(res.user))
+    .then(res=>{
+        console.log(res.user)
+        
+    })
     .catch(error=>console.log(error.message))
+    navigate(from,{replace:true})
+    
 }
 
     return (

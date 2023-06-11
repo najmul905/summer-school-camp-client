@@ -5,7 +5,7 @@ const usePopularclsdata = () => {
     const [popularCls,setPopularCls]=useState([])
     const [loader,setLoader]=useState(true)
 useEffect(()=>{
-    fetch('PopularCls.json')
+    fetch('http://localhost:5000/class')
     .then(res=>res.json())
     .then(data=>{
         setPopularCls(data)

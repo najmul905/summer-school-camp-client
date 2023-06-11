@@ -9,7 +9,7 @@ console.log(popuarIns)
             <h1>This is Popular instraction section</h1>
             <div className="grid grid-cols-3 gap-4">
             {
-                popuarIns.map(data=> <div key={data.id}>
+                popuarIns.map(data=> <div key={data._id}>
 
 <div className="card w-96 glass">
   <figure><img src={data.image} alt="car!"/></figure>

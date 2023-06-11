@@ -6,6 +6,11 @@ import Home from "../Pages/Home/Home/Home";
 import Instructor from "../Pages/Instructor/Instructor";
 import Login from "../Pages/SingIn/Login";
 import Singup from "../Pages/SingUp/Singup";
+import ClassDetails from "../Pages/Home/Home/PopularClass/ClassDetails";
+import PrivetRouts from "./PrivetRouts";
+import Dashbord from "../Pages/Dashbord/Dashbord";
+import SelectedClass from "../Pages/Dashbord/StudentDsh/SelectedClass";
+import EnrolledClass from "../Pages/Dashbord/StudentDsh/EnrolledClass";
 
   export const router = createBrowserRouter([
     {
@@ -27,7 +32,28 @@ import Singup from "../Pages/SingUp/Singup";
         {
           path:"singUp",
           element:<Singup></Singup>
+        },
+        {
+          path:"classDetails",
+          element:<PrivetRouts><ClassDetails></ClassDetails></PrivetRouts>
+
+        },
+        {
+          path:"dashboard",
+          element:<Dashbord></Dashbord>,
+          children:[
+{
+  path:'selectedClass',
+  element:<SelectedClass></SelectedClass>
+},
+{
+  path:"enrolledClass",
+  element:<EnrolledClass></EnrolledClass>
+}
+          ]
         }
+
       ]
     },
+
   ]);

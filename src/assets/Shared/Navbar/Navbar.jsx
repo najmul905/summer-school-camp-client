@@ -14,6 +14,7 @@ const handelLogOut=()=>{
     const navOption=<>
     <li><Link to="/">Home</Link></li>
     <li><Link to="/instructor">Instructor</Link></li>
+    <li><Link to="/dashboard">Dashboard</Link></li>
      
     </>
     return (

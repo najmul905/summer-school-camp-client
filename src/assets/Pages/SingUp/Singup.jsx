@@ -2,21 +2,25 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Singup = () => {
-const {createUser}=useContext(AuthContext)
+const {createUser,updateUserProfile}=useContext(AuthContext)
 
     const handelSubmit=(event)=>{
         event.preventDefault()
         const form=event.target;
         const name=form.name.value;
+        const image=form.image.value;
         const email=form.email.value;
         const password=form.password.value;
         const confirmPassword=form.ConfirmPassword.value;
         if(password===confirmPassword){
             console.log(name,email,password)
-            createUser(email,password)
+            createUser(email,password,name,image)
             .then(result=>{
                 const user=result.user
                 console.log(user)
+                updateUserProfile(name,image)
+                .then(()=>{})
+                .catch(err=>console.log(err.message))
             })
             .catch(error=>console.log(error.message))
         }
@@ -43,6 +47,12 @@ const {createUser}=useContext(AuthContext)
             <span className="label-text">Name</span>
           </label>
           <input type="text" name="name" placeholder="name" required className="input input-bordered" />
+        </div>
+        <div className="form-control">
+          <label className="label">
+            <span className="label-text">Image</span>
+          </label>
+          <input type="text" name="image" placeholder="Image" required className="input input-bordered" />
         </div>
         <div className="form-control">
           <label className="label">
