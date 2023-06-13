@@ -11,6 +11,7 @@ import PrivetRouts from "./PrivetRouts";
 import Dashbord from "../Pages/Dashbord/Dashbord";
 import SelectedClass from "../Pages/Dashbord/StudentDsh/SelectedClass";
 import EnrolledClass from "../Pages/Dashbord/StudentDsh/EnrolledClass";
+import Classes from "../Pages/Home/Home/Classes/Classes";
 
   export const router = createBrowserRouter([
     {
@@ -38,6 +39,10 @@ import EnrolledClass from "../Pages/Dashbord/StudentDsh/EnrolledClass";
           element:<PrivetRouts><ClassDetails></ClassDetails></PrivetRouts>
 
         },
+      {
+        path:"classes",
+        element:<Classes></Classes>
+      },
         {
           path:"dashboard",
           element:<Dashbord></Dashbord>,

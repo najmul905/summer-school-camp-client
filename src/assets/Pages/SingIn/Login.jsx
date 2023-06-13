@@ -2,8 +2,9 @@ import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 
+
 const Login = () => {
-    const {logIn}=useContext(AuthContext)
+    const {logIn,GoogleLogIn}=useContext(AuthContext)
 
     const navigate=useNavigate()
     const location=useLocation()
@@ -25,6 +26,25 @@ const handelLogIn=(event)=>{
     
 }
 
+// google
+
+const handelGoogle=()=>{
+GoogleLogIn()
+.then(result=>{
+  const googleUser=result.user
+  console.log(googleUser);
+})
+.catch((error) => {
+  // Handle authentication error
+  if (error.code === 'auth/cancelled-popup-request') {
+    console.log('Authentication popup request cancelled by the user');
+    // Display a message or take appropriate action
+  } else {
+    console.log('Authentication error', error);
+    // Handle other authentication errors
+  }
+});
+}
     return (
         <div>
            <div className="hero min-h-screen bg-base-200">
@@ -56,10 +76,14 @@ const handelLogIn=(event)=>{
         <div>
             <h1>If You are in new ..<Link className="font-bold text-orange-300" to="/singUp"><a href="">create a new account</a></Link>
 </h1>
+<button onClick={handelGoogle}>google</button>
         </div>
       </form>
     </div>
   </div>
+</div>
+<div>
+  
 </div>
         </div>
     );

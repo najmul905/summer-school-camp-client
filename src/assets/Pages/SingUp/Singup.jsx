@@ -17,9 +17,20 @@ const {createUser,updateUserProfile}=useContext(AuthContext)
             createUser(email,password,name,image)
             .then(result=>{
                 const user=result.user
+const users={name:name,email:email}
+                fetch('http://localhost:5000/users',{
+                  method:"POST",
+                  headers:{
+                    'content-type':'application/json'
+                  },
+                  body:JSON.stringify(users)
+                })
+                .then(res=>res.json())
+                .then(data=>console.log(data))
+
                 console.log(user)
                 updateUserProfile(name,image)
-                .then(()=>{})
+                .then(res=>{console.log(res.user)})
                 .catch(err=>console.log(err.message))
             })
             .catch(error=>console.log(error.message))
@@ -28,7 +39,7 @@ const {createUser,updateUserProfile}=useContext(AuthContext)
             alert('Do not match your password and confirm password')
         }
        
-        
+       
     }
 
 
