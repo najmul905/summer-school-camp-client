@@ -12,6 +12,9 @@ import Dashbord from "../Pages/Dashbord/Dashbord";
 import SelectedClass from "../Pages/Dashbord/StudentDsh/SelectedClass";
 import EnrolledClass from "../Pages/Dashbord/StudentDsh/EnrolledClass";
 import Classes from "../Pages/Home/Home/Classes/Classes";
+import AddInstructor from "../Pages/Dashbord/AddInstrunctor/AddInstructor";
+import ClassReques from "../Pages/Dashbord/ClassRequest/ClassReques";
+import AddClass from "../Pages/Dashbord/AddClass/AddClass";
 
   export const router = createBrowserRouter([
     {
@@ -54,6 +57,18 @@ import Classes from "../Pages/Home/Home/Classes/Classes";
 {
   path:"enrolledClass",
   element:<EnrolledClass></EnrolledClass>
+},
+{
+  path:"instructor",
+  element:<AddInstructor></AddInstructor>
+},
+{
+  path:"classrequest",
+  element:<ClassReques></ClassReques>
+},
+{
+  path:"addclass",
+  element:<AddClass></AddClass>
 }
           ]
         }

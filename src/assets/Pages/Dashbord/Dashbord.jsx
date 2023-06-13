@@ -1,11 +1,20 @@
 import { Link, Outlet } from "react-router-dom";
 
 const Dashbord = () => {
+
+const isAdmin=false
+const isInstructor=true
+// const isUser=false
 const dashboardLink=<>
-<li><Link to="/dashboard/selectedClass">My Selected Class</Link></li>
-<li><Link to="/dashboard/enrolledClass">My Enrolled Class</Link></li>
 
-
+{
+  isAdmin &&<><li><Link to="/dashboard/instructor">Add instructor</Link></li>
+  <li><Link to="/dashboard/classrequest">Class Request</Link></li>
+  </> || isInstructor &&<><li><Link to="/dashboard/addclass">Add class</Link></li> 
+  </> ||<><li><Link to="/dashboard/selectedClass">My Selected Class</Link></li>
+  <li><Link to="/dashboard/enrolledClass">My Enrolled Class</Link></li>
+  </>
+}
 </>
 
     return (
@@ -24,6 +33,8 @@ const dashboardLink=<>
     <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
       {/* Sidebar content here */}
       {dashboardLink}
+
+      
     </ul>
   
   </div>
