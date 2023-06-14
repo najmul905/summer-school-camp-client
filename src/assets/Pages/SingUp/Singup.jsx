@@ -17,7 +17,7 @@ const {createUser,updateUserProfile}=useContext(AuthContext)
             createUser(email,password,name,image)
             .then(result=>{
                 const user=result.user
-const users={name:name,email:email}
+const users={name:name,email:email,image:image}
                 fetch('http://localhost:5000/users',{
                   method:"POST",
                   headers:{

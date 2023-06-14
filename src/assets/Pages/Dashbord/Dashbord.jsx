@@ -2,14 +2,14 @@ import { Link, Outlet } from "react-router-dom";
 
 const Dashbord = () => {
 
-const isAdmin=false
-const isInstructor=true
+const isAdmin=true
+const isInstructor=false
 // const isUser=false
 const dashboardLink=<>
 
 {
-  isAdmin &&<><li><Link to="/dashboard/instructor">Add instructor</Link></li>
-  <li><Link to="/dashboard/classrequest">Class Request</Link></li>
+  isAdmin &&<><li><Link to="/dashboard/instructor">Manage User</Link></li>
+  <li><Link to="/dashboard/classrequest">Manage Classes</Link></li>
   </> || isInstructor &&<><li><Link to="/dashboard/addclass">Add class</Link></li> 
   </> ||<><li><Link to="/dashboard/selectedClass">My Selected Class</Link></li>
   <li><Link to="/dashboard/enrolledClass">My Enrolled Class</Link></li>

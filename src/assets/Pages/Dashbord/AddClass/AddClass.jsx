@@ -28,7 +28,7 @@ body:formData
 if(postData.success){
 const imgUrl=postData.data.display_url
 const{className,instructorName,price,seats,}=data
-const item={email,className,instructorName,price: parseFloat(price),seats,imgUrl,status}
+const item={email,className,instructorName,price: parseFloat(price),seats,image:imgUrl,status}
 
 console.log(item)
 fetch('http://localhost:5000/class',{
@@ -38,6 +38,8 @@ fetch('http://localhost:5000/class',{
   },
   body:JSON.stringify(item)
 })
+.then(res=>res.json())
+.then(data=>console.log(data))
 
 }
 
