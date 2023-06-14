@@ -6,16 +6,22 @@ const image_hosting_token=import.meta.env.VITE_IMAG_TOKEN
 
 const AddClass = () => {
 
-const {user}=useContext(AuthContext)
+const {user,loading}=useContext(AuthContext)
+if(loading){
+  return <>loading</>
+   }
+
 const {email,displayName}=user
-const status=null
+const status="null"
 
 const img_hosting_url=`https://api.imgbb.com/1/upload?key=${image_hosting_token}`
 
 const {register,handleSubmit,formState: { errors },
   } = useForm();
+ 
 const onSubmit=data=>{
-   console.log(data.className,data.instructorName,data.image,data.price,data.seats)
+  // console.log(data)
+  //  console.log(data.className,data.instructorName,data.image,data.price,data.seats,)
 const formData= new FormData();
 formData.append('image',data.image[0])
 fetch(img_hosting_url,{
@@ -27,7 +33,7 @@ body:formData
 .then(postData=>{
 if(postData.success){
 const imgUrl=postData.data.display_url
-const{className,instructorName,price,seats,}=data
+const{className,instructorName,price,seats}=data
 const item={email,className,instructorName,price: parseFloat(price),seats,image:imgUrl,status}
 
 console.log(item)
@@ -49,6 +55,7 @@ fetch('http://localhost:5000/class',{
 
 }
   console.log(errors)
+  
 
     return (
         <div>
@@ -69,7 +76,7 @@ fetch('http://localhost:5000/class',{
           <label className="label">
             <span className="label-text">Instructor Name</span>
           </label>
-          <input type="text" defaultValue={displayName} disabled {...register("instructorName")} name="instructorName" placeholder="Instructor Name" className="input input-bordered" />
+          <input type="text" defaultValue={displayName}  {...register("instructorName")} name="instructorName" placeholder="Instructor Name" className="input input-bordered" />
          
         </div>
         </div>

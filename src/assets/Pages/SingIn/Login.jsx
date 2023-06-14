@@ -33,16 +33,24 @@ GoogleLogIn()
 .then(result=>{
   const googleUser=result.user
   console.log(googleUser);
+  const users={name:googleUser.displayName,image:googleUser.photoURL,email:googleUser.email}
+
+// save users
+fetch('http://localhost:5000/users',{
+                  method:"POST",
+                  headers:{
+                    'content-type':'application/json'
+                  },
+                  body:JSON.stringify(users)
+                })
+                .then(res=>res.json())
+                .then(data=>console.log(data))
+
+
+
 })
 .catch((error) => {
-  // Handle authentication error
-  if (error.code === 'auth/cancelled-popup-request') {
-    console.log('Authentication popup request cancelled by the user');
-    // Display a message or take appropriate action
-  } else {
-    console.log('Authentication error', error);
-    // Handle other authentication errors
-  }
+  console.log(error)
 });
 }
     return (
@@ -76,7 +84,9 @@ GoogleLogIn()
         <div>
             <h1>If You are in new ..<Link className="font-bold text-orange-300" to="/singUp"><a href="">create a new account</a></Link>
 </h1>
-<button onClick={handelGoogle}>google</button>
+<div className="my-4 text-center ">
+<button className="bg-indigo-500 p-2 rounded text-white" onClick={handelGoogle}>LonIn google google</button>
+</div>
         </div>
       </form>
     </div>

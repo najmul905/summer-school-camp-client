@@ -3,34 +3,58 @@ import { useQuery } from "react-query";
 
 const AddInstructor = () => {
 
+    const {data: users = [],refetch}=useQuery(['users'],async()=>{
+        const res=await fetch('http://localhost:5000/users');
+        return res.json()
+    })
+    
+    console.log(users)
+
+
+
+
 // handelInstructor
 const handelInstructor=(data)=>{
-    
+    fetch( `http://localhost:5000/users/instructor/${data._id}`,{
+        method:"PATCH"
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        if(data.modifiedCount){
+            refetch
+        }
+       
+        console.log(data)})
+
 }
 // handelAdmin
 const handelAdmin=(data)=>{
+    fetch( `http://localhost:5000/users/admin/${data._id}`,{
+        method:"PATCH"
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        if(data.modifiedCount){
+            refetch
+        }
+       
+        console.log(data)})
 
 }
 // handelDelete
 const handelDelete=(data)=>{
 
+  fetch(`http://localhost:5000/users/${data._id}`,{
+    method:'DELETE'
+  })
+  .then(res=>res.json())
+  .then(data=>{
+    if(data.modifiedCount){
+      refetch
+    }
+  })
+
 }
-
-
-// const{data:users=[]}=useQuery({queryKey:['users'],queryFn:async()=>{
-//     const res=await fetch('http://localhost:5000/users');
-//     return res.json
-// }})
-
-const {data: users = []}=useQuery(['users'],async()=>{
-    const res=await fetch('http://localhost:5000/users');
-    return res.json()
-})
-
-console.log(users)
-
-    
-
 
     return (
         <div>
@@ -77,10 +101,16 @@ console.log(users)
                 </td>
                
                 <th>
-                  <button onClick={()=>handelInstructor(data)} className="btn btn-ghost btn-xs bg-lime-300">Make instructor</button>
+                    {
+                        data.role==='instructor'?'Instructor': <button onClick={()=>handelInstructor(data)} className="btn btn-ghost btn-xs bg-lime-300">Make instructor</button>
+                    }
+                 
                 </th>
                 <th>
-                  <button onClick={()=>handelAdmin(data)} className="btn btn-ghost btn-xs bg-lime-500">Make Admin</button>
+                  {
+
+                    data.role==='admin'?'Admin':<button onClick={()=>handelAdmin(data)} className="btn btn-ghost btn-xs bg-lime-500">Make Admin</button>
+                  }
                 </th>
                 <th>
                   <button onClick={()=>handelDelete(data)} className="btn btn-ghost btn-xs bg-red-700 text-white">Delete</button>
