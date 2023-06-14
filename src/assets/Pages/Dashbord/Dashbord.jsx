@@ -1,28 +1,32 @@
-import { useQuery } from "react-query";
+// import { useContext, } from "react";
 import { Link, Outlet } from "react-router-dom";
+// import UseUser from "../../../Hooks/UseUser/UseUser";
+// import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Dashbord = () => {
 
-  const {data: users = []}=useQuery(['users'],async()=>{
-    const res=await fetch('http://localhost:5000/users');
-    return res.json()
-})
-console.log(users)
-const isAdmin=false
-const isInstructor=true
-// const isUser=false
+//  const[person]=UseUser
+  
+
+
+const isAdmin=true
+const isInstructor=false
+ 
+
 const dashboardLink=<>
 
 {
-  isAdmin &&<><li><Link to="/dashboard/instructor">Manage User</Link></li>
-  <li><Link to="/dashboard/classrequest">Manage Classes</Link></li>
-  </> || isInstructor &&<><li><Link to="/dashboard/addclass">Add class</Link><Link to="/dashboard/myclass">My class</Link></li> 
-  </> ||<><li><Link to="/dashboard/selectedClass">My Selected Class</Link></li>
-  <li><Link to="/dashboard/enrolledClass">My Enrolled Class</Link></li>
+  isAdmin &&<><li><Link className="bg-green-300" to="/dashboard/instructor">Manage User</Link></li>
+  <li><Link className="bg-green-300" to="/dashboard/classrequest">Manage Classes</Link></li>
+  </> || isInstructor &&<><li ><Link className="bg-green-300" to="/dashboard/addclass">Add class</Link><Link className="bg-green-300" to="/dashboard/myclass">My class</Link></li> 
+  </> ||<><li><Link className="bg-green-300" to="/dashboard/selectedClass">My Selected Class</Link></li>
+  <li><Link className="bg-green-300" to="/dashboard/enrolledClass">My Enrolled Class</Link></li>
   </>
 }
 </>
-
+// if(isLoading){
+//   return 'loading...'
+// }
     return (
         <div>
             <div className="drawer lg:drawer-open">

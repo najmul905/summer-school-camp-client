@@ -11,6 +11,8 @@ const handelLogOut=()=>{
   .catch(error=>console.log(error.message))
 }
 
+// const image=user.
+
     const navOption=<>
     <li><Link to="/">Home</Link></li>
     <li><Link to="/instructor">Instructor</Link></li>
@@ -30,7 +32,7 @@ const handelLogOut=()=>{
         {navOption}
       </ul>
     </div>
-    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+    <a className="btn btn-ghost normal-case text-xl italic">Summer School</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1 font-bold">
@@ -38,9 +40,12 @@ const handelLogOut=()=>{
     </ul>
   </div>
   <div className="navbar-end">
+    {
+      user&& <img className="w-[45px] rounded-full mx-2" src={user.photoURL} alt="" />
+    }
   
 {
-  user?<><button onClick={handelLogOut}>LogOut</button></>:<><Link to='/logIn'><button>LogIn</button></Link></>
+  user?<><button className="p-2 rounded bg-orange-400 text-white font-bold" onClick={handelLogOut}>LogOut</button></>:<><Link to='/logIn'><button>LogIn</button></Link></>
 }
     
 

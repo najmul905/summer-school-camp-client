@@ -3,55 +3,45 @@ import { useQuery } from "react-query";
 
 const AddInstructor = () => {
 
-    const {data: users = [],refetch}=useQuery(['users'],async()=>{
+    const {data: users = [],isLoading,}=useQuery(['users'],async()=>{
         const res=await fetch('http://localhost:5000/users');
         return res.json()
     })
-    
+    if(isLoading){
+      <>loading...</>
+    }
     console.log(users)
-
-
-
-
 // handelInstructor
-const handelInstructor=(data)=>{
-    fetch( `http://localhost:5000/users/instructor/${data._id}`,{
+const handelInstructor=(id)=>{
+    fetch( `http://localhost:5000/users/instructor/${id}`,{
         method:"PATCH"
     })
     .then(res=>res.json())
     .then(data=>{
-        if(data.modifiedCount){
-            refetch
-        }
-       
-        console.log(data)})
+      console.log(data)
+     })
 
 }
 // handelAdmin
-const handelAdmin=(data)=>{
-    fetch( `http://localhost:5000/users/admin/${data._id}`,{
+const handelAdmin=(id)=>{
+    fetch( `http://localhost:5000/users/admin/${id}`,{
         method:"PATCH"
     })
     .then(res=>res.json())
     .then(data=>{
-        if(data.modifiedCount){
-            refetch
-        }
-       
-        console.log(data)})
+      console.log(data)
+     })
 
 }
 // handelDelete
-const handelDelete=(data)=>{
+const handelDelete=(id)=>{
 
-  fetch(`http://localhost:5000/users/${data._id}`,{
+  fetch(`http://localhost:5000/users/${id}`,{
     method:'DELETE'
   })
   .then(res=>res.json())
   .then(data=>{
-    if(data.modifiedCount){
-      refetch
-    }
+   console.log(data)
   })
 
 }
@@ -60,7 +50,7 @@ const handelDelete=(data)=>{
         <div>
            <div className="overflow-x-auto">
   <table className="table">
-    {/* head */}
+    
     <thead>
       <tr>
         <th>
@@ -74,7 +64,7 @@ const handelDelete=(data)=>{
       </tr>
     </thead>
     <tbody>
-      {/* row 1 */}
+     
       {
             users.map((data,index)=> <tr key={data._id} >
        
@@ -102,25 +92,25 @@ const handelDelete=(data)=>{
                
                 <th>
                     {
-                        data.role==='instructor'?'Instructor': <button onClick={()=>handelInstructor(data)} className="btn btn-ghost btn-xs bg-lime-300">Make instructor</button>
+                        data.role==='instructor'?'Instructor': <button onClick={()=>handelInstructor(data._id)} className="btn btn-ghost btn-xs bg-lime-300">Make instructor</button>
                     }
                  
                 </th>
                 <th>
                   {
 
-                    data.role==='admin'?'Admin':<button onClick={()=>handelAdmin(data)} className="btn btn-ghost btn-xs bg-lime-500">Make Admin</button>
+                    data.role==='admin'?'Admin':<button onClick={()=>handelAdmin(data._id)} className="btn btn-ghost btn-xs bg-lime-500">Make Admin</button>
                   }
                 </th>
                 <th>
-                  <button onClick={()=>handelDelete(data)} className="btn btn-ghost btn-xs bg-red-700 text-white">Delete</button>
+                  <button onClick={()=>handelDelete(data._id)} className="btn btn-ghost btn-xs bg-red-700 text-white">Delete</button>
                 </th>
               </tr>)
         }
      
      
     </tbody>
-    {/* foot */}
+   
     
   </table>
 </div>

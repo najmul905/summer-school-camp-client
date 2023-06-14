@@ -8,7 +8,7 @@ const AddClass = () => {
 
 const {user,loading}=useContext(AuthContext)
 if(loading){
-  return <>loading</>
+   <>loading</>
    }
 
 const {email,displayName}=user
@@ -33,8 +33,8 @@ body:formData
 .then(postData=>{
 if(postData.success){
 const imgUrl=postData.data.display_url
-const{className,instructorName,price,seats}=data
-const item={email,className,instructorName,price: parseFloat(price),seats,image:imgUrl,status}
+const{className,instructorName,price,seats,offer}=data
+const item={email,className,instructorName,price: parseFloat(price),seats,image:imgUrl,status,discount:offer}
 
 console.log(item)
 fetch('http://localhost:5000/class',{
@@ -46,17 +46,10 @@ fetch('http://localhost:5000/class',{
 })
 .then(res=>res.json())
 .then(data=>console.log(data))
-
 }
-
-
 })
-
-
 }
   console.log(errors)
-  
-
     return (
         <div>
             <h1>This is add class</h1>
@@ -94,6 +87,13 @@ fetch('http://localhost:5000/class',{
           <input type="number" {...register("price")} name="price" placeholder="Price" className="input input-bordered" />
          
         </div>
+        </div>
+        <div className="form-control m-2">
+          <label className="label">
+            <span className="label-text">Discount</span>
+          </label>
+          <input type="number" {...register("offer")} name="offer" placeholder="Discount" className="input input-bordered" />
+         
         </div>
         <div className="my-4 text-center">
         <input type="file" {...register("image")} name="image" className="file-input file-input-bordered file-input-lg w-full max-w-xs" />
