@@ -15,7 +15,11 @@ const classData=cart.filter(item=>item.status=="confirm")
 console.log(classData)
     return (
         <div>
-   <h1>{cart.length}</h1>
+    <div className="text-center my-6 w-1/2 mx-auto rounded-md text-white italic bg-indigo-500 p-5">
+          <h1 className="text-2xl">See.....</h1>
+          <div className="w-1/2 mx-auto "><hr /></div>
+          <h1 className="text-5xl font-semibold">Our Class</h1>
+        </div>
 
 
    <div className="grid grid-cols-3 gap-5 mx-auto text-center">
@@ -23,7 +27,7 @@ console.log(classData)
 classData.map(data=> <div key={data._id}>
 
 <div >
-<div className="card card-compact w-96 bg-base-100 shadow-xl">
+<div className="card card-compact w-auto px-5 bg-base-100 shadow-xl">
   <figure><img src={data.image} alt="" /></figure>
   <div className="card-body">
     <h2 className="card-title">{data.className}</h2>

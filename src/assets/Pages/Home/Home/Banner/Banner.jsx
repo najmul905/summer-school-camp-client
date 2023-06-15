@@ -13,9 +13,9 @@ const [slider]=useData()
 
 
     return (
-        <div>
-            <h1>This is home</h1>
-            <>
+        <div className="p-5">
+         
+            < >
       <Swiper
         slidesPerView={3}
         spaceBetween={30}
@@ -27,9 +27,11 @@ const [slider]=useData()
         className="mySwiper"
       >
 
+        <div >
         {
-            slider.map(img=> <SwiperSlide key={img.id}><img className="h-96 w-96" src={img.img} alt="" /></SwiperSlide>)
+            slider.map(img=> <SwiperSlide key={img.id}><img className="h-80 w-80 hover:w-[340px] hover:h-[340px] rounded" src={img.img} alt="" /></SwiperSlide>)
         }
+        </div>
        
       </Swiper>
     </>

@@ -16,6 +16,7 @@ import AddInstructor from "../Pages/Dashbord/AddInstrunctor/AddInstructor";
 import ClassReques from "../Pages/Dashbord/ClassRequest/ClassReques";
 import AddClass from "../Pages/Dashbord/AddClass/AddClass";
 import MyClass from "../Pages/Instructor/MyClass.jsx/MyClass";
+import ErrorPage from "../Error/ErrorPage";
 
   export const router = createBrowserRouter([
     {
@@ -80,5 +81,9 @@ import MyClass from "../Pages/Instructor/MyClass.jsx/MyClass";
 
       ]
     },
+    {
+      path:"*",
+      element:<ErrorPage></ErrorPage>
+    }
 
   ]);
