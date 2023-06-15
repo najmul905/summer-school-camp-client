@@ -11,7 +11,7 @@ if(loading){
    <>loading</>
    }
 
-const {email,displayName}=user
+// const {email,displayName}=user
 const status="null"
 
 const img_hosting_url=`https://api.imgbb.com/1/upload?key=${image_hosting_token}`
@@ -34,7 +34,7 @@ body:formData
 if(postData.success){
 const imgUrl=postData.data.display_url
 const{className,instructorName,price,seats,offer}=data
-const item={email,className,instructorName,price: parseFloat(price),seats,image:imgUrl,status,discount:offer}
+const item={email:user?.email,className,instructorName,price: parseFloat(price),seats,image:imgUrl,status,discount:offer}
 
 console.log(item)
 fetch('http://localhost:5000/class',{
@@ -69,7 +69,7 @@ fetch('http://localhost:5000/class',{
           <label className="label">
             <span className="label-text">Instructor Name</span>
           </label>
-          <input type="text" defaultValue={displayName}  {...register("instructorName")} name="instructorName" placeholder="Instructor Name" className="input input-bordered" />
+          <input type="text" defaultValue={user?.displayName}  {...register("instructorName")} name="instructorName" placeholder="Instructor Name" className="input input-bordered" />
          
         </div>
         </div>

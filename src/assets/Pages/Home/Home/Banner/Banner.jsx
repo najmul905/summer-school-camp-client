@@ -29,7 +29,7 @@ const [slider]=useData()
 
         <div >
         {
-            slider.map(img=> <SwiperSlide key={img.id}><img className="h-80 w-80 hover:w-[340px] hover:h-[340px] rounded" src={img.img} alt="" /></SwiperSlide>)
+            slider.map(img=> <SwiperSlide key={img.id}><img className="md:h-80 md:w-80 w-[98px] h-[126px] md:hover:w-[340px] md:hover:h-[340px] rounded" src={img.img} alt="" /></SwiperSlide>)
         }
         </div>
        

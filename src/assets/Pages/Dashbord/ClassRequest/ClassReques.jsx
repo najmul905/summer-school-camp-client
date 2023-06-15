@@ -58,7 +58,7 @@ refetch
 
     return (
         <div>
-            { cart.length}
+           
            {
 cart.map(data=><div key={data._id}>
 

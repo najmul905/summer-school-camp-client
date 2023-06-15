@@ -9,7 +9,7 @@ const Dashbord = () => {
   
 
 
-const isAdmin=true
+const isAdmin=false
 const isInstructor=false
  
 

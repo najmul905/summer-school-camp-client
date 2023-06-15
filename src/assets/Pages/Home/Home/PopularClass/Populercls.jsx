@@ -1,9 +1,18 @@
+import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
-import usePopularclsdata from "../../../../../Hooks/UsePopularClsData/usePopularclsdata";
+// import usePopularclsdata from "../../../../../Hooks/UsePopularClsData/usePopularclsdata";
 
 const Populercls = () => {
-   const [popularCls]=usePopularclsdata()
-   console.log(popularCls)
+  //  const [popularCls]=usePopularclsdata()
+  //  console.log(popularCls)
+
+   const { data: cart = [], } = useQuery(['cart'], async () => {
+    const res = await fetch('http://localhost:5000/class')
+    return res.json()
+  })
+  
+  const popularCls=cart.filter(item=>item.status=="confirm")
+   
 
 //    const {id,name,image,description}=popularCls
     
@@ -15,7 +24,7 @@ const Populercls = () => {
           <h1 className="text-5xl font-semibold">Our Popular Class</h1>
         </div>
        
-         <div className="grid grid-cols-3 gap-4 my-10 px-5 ">
+         <div className="grid md:grid-cols-3 gap-4 my-10 px-5 ">
            {
 popularCls.map(data=><div key={data._id}>
 
@@ -23,12 +32,13 @@ popularCls.map(data=><div key={data._id}>
   <figure><img src={data.image} alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title">
-      {data.class_name}
+      {data.className}
     </h2>
-    <p>{data.description}</p>
+    <h1>{data.instructorName}</h1>
+  
     <div className="card-actions justify-end">
-      <div className="badge badge-outline">Fashion</div> 
-      <div className="badge badge-outline">Products</div>
+      <div className="badge badge-outline bg-orange-500 text-white">Price: {data.price}Taka</div> 
+      <div className="badge badge-outline bg-orange-700 text-white">Available seats: {data.seats}</div>
     </div>
     <div>
       <Link to="/classDetails " className="bg-cyan-600 py-2 px-1 rounded"><button>Show Details</button></Link>

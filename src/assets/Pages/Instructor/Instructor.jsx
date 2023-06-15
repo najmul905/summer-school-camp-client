@@ -28,10 +28,8 @@ const Instructor = () => {
                             <figure><img className="h-40 w-40 rounded-full p-4" src={data.image} alt="Movie" /></figure>
                             <div className="card-body">
                                 <h2 className="card-title">{data.name}</h2>
-                                <p>Click the button to watch on Jetflix app.</p>
-                                <div className="card-actions justify-end">
-                                    <button className="btn btn-primary">Watch</button>
-                                </div>
+                                <p>{data.email}</p>
+                                
                             </div>
                         </div>
                     </div>)

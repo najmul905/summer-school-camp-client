@@ -1,17 +1,45 @@
+import { useContext } from "react";
 import { useQuery } from "react-query";
+import { AuthContext } from "../../../../Provider/AuthProvider";
 
 const MyClass = () => {
-
-    const {data: users = []}=useQuery(['users'],async()=>{
-        const res=await fetch('http://localhost:5000/users');
+    const { user, loading } = useContext(AuthContext)
+    if (loading) {
+        <>loading....</>
+    }
+    const { data: data = [] } = useQuery(['data'], async () => {
+        const res = await fetch('http://localhost:5000/class');
         return res.json()
     })
-    console.log(users)
 
-    
+    const instructorData = data.filter(item => item.email === user?.email)
+
+    console.log(instructorData)
+
+
     return (
         <div>
-          
+
+            <div className="">
+                {
+                    instructorData.map(data => <div key={data._id}>
+<div className="card card-side bg-base-100 my-4  shadow-xl">
+  <figure><img className="w-52 rounded" src={data.image} alt="Movie"/></figure>
+  <div className="card-body">
+    <h2 className="card-title">{data.className}</h2>
+    <h2 className="card-title">{data.instructorName}</h2>
+   
+    <div className="card-actions justify-end">
+  
+  {
+    data.status=="null"?<><h1>Pending..</h1></>:<><h1>Approved</h1></>
+  }
+    </div>
+  </div>
+</div>
+                    </div>)
+                }
+            </div>
         </div>
     );
 };

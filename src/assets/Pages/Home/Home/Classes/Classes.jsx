@@ -1,16 +1,29 @@
-import { useEffect } from "react";
-import { useState } from "react";
-
+import { useContext } from "react";
+import { useQuery } from "react-query";
+import { AuthContext } from "../../../../../Provider/AuthProvider";
 const Classes = () => {
 
-const [cart,setCart]=useState([])
+const {user}=useContext(AuthContext)
 
-useEffect(()=>{
-    fetch('http://localhost:5000/class')
-    .then(res=>res.json())
-    .then(data=>setCart(data))
-},[])
+const { data: cart = [], } = useQuery(['cart'], async () => {
+  const res = await fetch('http://localhost:5000/class')
+  return res.json()
+})
 
+const handelUserData=(data,)=>{
+  console.log(data,user)
+  const item={ className:data.className,instructorName:data.instructorName,price:data.price,userEmail:user.email}
+fetch('http://localhost:5000/userData',{
+  method:"POST",
+  headers:{
+    'content-type':"application/json"
+  },
+  body:JSON.stringify(item)
+})
+.then(res=>res.json())
+.then(data=>console.log(data))
+// console.log(item)
+}
 const classData=cart.filter(item=>item.status=="confirm")
 console.log(classData)
     return (
@@ -30,11 +43,12 @@ classData.map(data=> <div key={data._id}>
 <div className="card card-compact w-auto px-5 bg-base-100 shadow-xl">
   <figure><img src={data.image} alt="" /></figure>
   <div className="card-body">
-    <h2 className="card-title">{data.className}</h2>
-    <h2 className="card-title">{data.InstructorName}</h2>
-    <p>{data.price}</p>
+    <h2 className="card-title">Sports Name: {data.className}</h2>
+    <h2 className="card-title">Instructor Name: {data.instructorName
+}</h2>
+    <p> Price: {data.price}taka</p>
     <div className="card-actions justify-end">
-      <button className="btn btn-primary">Add the Class</button>
+      <button onClick={()=>handelUserData(data)} className="btn btn-primary">Add the Class</button>
     </div>
   </div>
 </div>
