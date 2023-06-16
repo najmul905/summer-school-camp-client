@@ -6,14 +6,14 @@ const Classes = () => {
 const {user}=useContext(AuthContext)
 
 const { data: cart = [], } = useQuery(['cart'], async () => {
-  const res = await fetch('http://localhost:5000/class')
+  const res = await fetch('https://school-summer-sport-camp-server.vercel.app/class')
   return res.json()
 })
 
 const handelUserData=(data,)=>{
   console.log(data,user)
   const item={ className:data.className,id:data._id,instructorName:data.instructorName,price:data.price,userEmail:user.email}
-fetch('http://localhost:5000/userData',{
+fetch('https://school-summer-sport-camp-server.vercel.app/userData',{
   method:"POST",
   headers:{
     'content-type':"application/json"

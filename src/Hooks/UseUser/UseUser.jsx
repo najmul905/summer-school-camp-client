@@ -10,7 +10,7 @@ const UseUser = () => {
 
 const{data:person=[]}=useQuery(['person'],async()=>{
   
-    const res= await   fetch( `http://localhost:5000/users/${user.eamil}`)
+    const res= await   fetch( `https://school-summer-sport-camp-server.vercel.app/users/${user.eamil}`)
     return res.json()
 })
 

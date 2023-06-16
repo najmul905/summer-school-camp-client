@@ -37,7 +37,7 @@ const{className,instructorName,price,seats,offer}=data
 const item={email:user?.email,className,instructorName,price: parseFloat(price),seats,image:imgUrl,status,discount:offer}
 
 console.log(item)
-fetch('http://localhost:5000/class',{
+fetch('https://school-summer-sport-camp-server.vercel.app/class',{
   method:"POST",
   headers:{
     'content-type':'application/json'

@@ -4,7 +4,7 @@ const usePopularins = () => {
     const [popuarIns,setPopularCls]=useState([])
     const [loader,setLoader]=useState(true)
 useEffect(()=>{
-    fetch('http://localhost:5000/instructor')
+    fetch('https://school-summer-sport-camp-server.vercel.app/instructor')
     .then(res=>res.json())
     .then(data=>{
         setPopularCls(data)

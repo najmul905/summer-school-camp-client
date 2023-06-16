@@ -7,7 +7,7 @@ const Populercls = () => {
   //  console.log(popularCls)
 
   const { data: cart = [], } = useQuery(['cart'], async () => {
-    const res = await fetch('http://localhost:5000/class')
+    const res = await fetch('https://school-summer-sport-camp-server.vercel.app/class')
     return res.json()
   })
 

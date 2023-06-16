@@ -6,7 +6,7 @@ const PopulerIns = () => {
 
 
 const { data: users = [], } = useQuery(['users'], async () => {
-  const res = await fetch('http://localhost:5000/users')
+  const res = await fetch('https://school-summer-sport-camp-server.vercel.app/users')
   return res.json()
 })
 const instructor = users.filter(data => data.role == "instructor")

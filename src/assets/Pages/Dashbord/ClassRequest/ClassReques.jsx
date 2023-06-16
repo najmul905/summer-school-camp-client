@@ -5,13 +5,13 @@ import { useQuery } from "react-query";
 const ClassReques = () => {
 // const [cart,setCart]=useState([])
 // useEffect(()=>{
-//     fetch('http://localhost:5000/class')
+//     fetch('https://school-summer-sport-camp-server.vercel.app/class')
 //     .then(res=>res.json())
 //     .then(data=>setCart(data))
 // },[])
 
 const {data: cart = [], refetch}=useQuery(['cart'],async()=>{
-    const res=await fetch('http://localhost:5000/class');
+    const res=await fetch('https://school-summer-sport-camp-server.vercel.app/class');
     return res.json()
 })
 // handelUpdate
@@ -19,7 +19,7 @@ const status="confirm"
 
 const handelUpdate=(id)=>{
     const update={status}
-    fetch(`http://localhost:5000/class/${id}`,{
+    fetch(`https://school-summer-sport-camp-server.vercel.app/class/${id}`,{
     method:"PUT",
     headers:{
         'content-type':'application/json'
@@ -40,7 +40,7 @@ refetch
 // handelDelete
 const handelDelete=(id)=>{
 console.log(id)
-fetch(`http://localhost:5000/class/${id}`,{
+fetch(`https://school-summer-sport-camp-server.vercel.app/class/${id}`,{
     method:"DELETE"
 })
 .then(res=>res.json())

@@ -37,7 +37,7 @@ GoogleLogIn()
   const users={name:googleUser.displayName,image:googleUser.photoURL,email:googleUser.email}
 
 // save users
-fetch('http://localhost:5000/users',{
+fetch('https://school-summer-sport-camp-server.vercel.app/users',{
                   method:"POST",
                   headers:{
                     'content-type':'application/json'

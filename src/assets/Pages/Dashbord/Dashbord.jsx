@@ -10,7 +10,7 @@ const Dashbord = () => {
   const{user}=useContext(AuthContext)
 
   const { data: users = [], } = useQuery(['users'], async () => {
-    const res = await fetch('http://localhost:5000/users')
+    const res = await fetch('https://school-summer-sport-camp-server.vercel.app/users')
     return res.json()
   })
 console.log(users)

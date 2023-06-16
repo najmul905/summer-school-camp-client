@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Discount = () => {
     const { data:dis = [], } = useQuery(['dis'], async () => {
-        const res = await fetch('http://localhost:5000/class')
+        const res = await fetch('https://school-summer-sport-camp-server.vercel.app/class')
         return res.json()
       })
       const classData=dis.filter(item=>item.status=="confirm")

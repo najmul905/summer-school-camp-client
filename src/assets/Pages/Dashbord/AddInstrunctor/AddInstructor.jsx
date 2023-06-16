@@ -4,7 +4,7 @@ import { useQuery } from "react-query";
 const AddInstructor = () => {
 
     const {data: users = [],isLoading,}=useQuery(['users'],async()=>{
-        const res=await fetch('http://localhost:5000/users');
+        const res=await fetch('https://school-summer-sport-camp-server.vercel.app/users');
         return res.json()
     })
     if(isLoading){
@@ -13,7 +13,7 @@ const AddInstructor = () => {
     console.log(users)
 // handelInstructor
 const handelInstructor=(id)=>{
-    fetch( `http://localhost:5000/users/instructor/${id}`,{
+    fetch( `https://school-summer-sport-camp-server.vercel.app/users/instructor/${id}`,{
         method:"PATCH"
     })
     .then(res=>res.json())
@@ -24,7 +24,7 @@ const handelInstructor=(id)=>{
 }
 // handelAdmin
 const handelAdmin=(id)=>{
-    fetch( `http://localhost:5000/users/admin/${id}`,{
+    fetch( `https://school-summer-sport-camp-server.vercel.app/users/admin/${id}`,{
         method:"PATCH"
     })
     .then(res=>res.json())
@@ -36,7 +36,7 @@ const handelAdmin=(id)=>{
 // handelDelete
 const handelDelete=(id)=>{
 
-  fetch(`http://localhost:5000/users/${id}`,{
+  fetch(`https://school-summer-sport-camp-server.vercel.app/users/${id}`,{
     method:'DELETE'
   })
   .then(res=>res.json())

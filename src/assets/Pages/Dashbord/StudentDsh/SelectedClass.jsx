@@ -6,7 +6,7 @@ const SelectedClass = () => {
 const {user}=useContext(AuthContext)
 
     const { data: data = [], } = useQuery(['data'], async () => {
-        const res = await fetch('http://localhost:5000/userData')
+        const res = await fetch('https://school-summer-sport-camp-server.vercel.app/userData')
         return res.json()
       })
       const usersData=data.filter(item=>item.userEmail==user.email)
