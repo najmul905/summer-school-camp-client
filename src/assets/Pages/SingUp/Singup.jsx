@@ -1,12 +1,17 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const image_hosting_token=import.meta.env.VITE_IMAG2_TOKEN
 
 const Singup = () => {
 const {createUser,updateUserProfile}=useContext(AuthContext)
 const img_hosting_url=`https://api.imgbb.com/1/upload?key=${image_hosting_token}`
+
+const navigate=useNavigate()
+    const location=useLocation()
+    const from=location.state?.form?.pathname || '/'
 
 const {register,handleSubmit,formState: { errors },
   } = useForm();
@@ -50,6 +55,9 @@ const users={name:name,email:email,image:image}
         .catch(err=>console.log(err.message))
     })
     .catch(error=>console.log(error.message))
+
+
+    navigate(from,{replace:true})
 }
 else{
     alert('Do not match your password and confirm password')

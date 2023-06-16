@@ -1,14 +1,19 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Navbar = () => {
 
+  const navigate=useNavigate()
+    const location=useLocation()
+    const from=location.state?.form?.pathname || '/'
+
 const {user,logOut}=useContext(AuthContext)
 const handelLogOut=()=>{
   logOut()
-  .then(()=>{})
+  .then((data)=>{console.log(data)})
   .catch(error=>console.log(error.message))
+  navigate(from,{replace:true})
 }
 
 // const image=user.
@@ -45,7 +50,7 @@ const handelLogOut=()=>{
     }
   
 {
-  user?<><button className="p-2 rounded bg-orange-400 text-white font-bold" onClick={handelLogOut}>LogOut</button></>:<><Link to='/logIn'><button>LogIn</button></Link></>
+  user?<><button className="p-2 rounded bg-orange-400 text-white font-bold" onClick={handelLogOut}>LogOut</button></>:<><Link to='/logIn'><button className="p-2 rounded bg-orange-400 text-white font-bold">LogIn</button></Link></>
 }
     
 

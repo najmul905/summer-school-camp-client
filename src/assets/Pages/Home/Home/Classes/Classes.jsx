@@ -12,7 +12,7 @@ const { data: cart = [], } = useQuery(['cart'], async () => {
 
 const handelUserData=(data,)=>{
   console.log(data,user)
-  const item={ className:data.className,instructorName:data.instructorName,price:data.price,userEmail:user.email}
+  const item={ className:data.className,id:data._id,instructorName:data.instructorName,price:data.price,userEmail:user.email}
 fetch('http://localhost:5000/userData',{
   method:"POST",
   headers:{
@@ -49,6 +49,11 @@ classData.map(data=> <div key={data._id}>
     <p> Price: {data.price}taka</p>
     <div className="card-actions justify-end">
       <button onClick={()=>handelUserData(data)} className="btn btn-primary">Add the Class</button>
+    </div>
+    <div>
+    {
+      data.discount &&<div className="badge badge-secondary">Discount {data.discount}%</div>
+    }
     </div>
   </div>
 </div>

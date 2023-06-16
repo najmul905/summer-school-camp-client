@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const Login = () => {
@@ -44,7 +45,17 @@ fetch('http://localhost:5000/users',{
                   body:JSON.stringify(users)
                 })
                 .then(res=>res.json())
-                .then(data=>console.log(data))
+              .then(data=>{
+              if(data.acknowledged){
+                Swal.fire({
+                  position: 'top-end',
+                  icon: 'success',
+                  title: 'Your LogIn is Success',
+                  showConfirmButton: false,
+                  timer: 1500
+                })
+              }
+              })
 
 
 
@@ -52,6 +63,7 @@ fetch('http://localhost:5000/users',{
 .catch((error) => {
   console.log(error)
 });
+navigate(from,{replace:true})
 }
     return (
         <div>

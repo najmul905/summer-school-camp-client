@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import Banner from './Banner/Banner';
 import Populercls from './PopularClass/Populercls';
 import PopulerIns from './PopulerInstractor/PopulerIns';
+import Discount from './Discount/Discount';
 
 const Home = () => {
 
@@ -17,6 +18,7 @@ const Home = () => {
             <Banner></Banner>
             <Populercls></Populercls>
             <PopulerIns></PopulerIns>
+            <Discount></Discount>
 
         </div>
     );

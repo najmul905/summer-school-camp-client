@@ -1,24 +1,31 @@
 // import { useContext, } from "react";
+import { useContext } from "react";
+import { useQuery } from "react-query";
 import { Link, Outlet } from "react-router-dom";
+import { AuthContext } from "../../../Provider/AuthProvider";
 // import UseUser from "../../../Hooks/UseUser/UseUser";
 // import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Dashbord = () => {
+  const{user}=useContext(AuthContext)
 
-//  const[person]=UseUser
-  
+  const { data: users = [], } = useQuery(['users'], async () => {
+    const res = await fetch('http://localhost:5000/users')
+    return res.json()
+  })
+console.log(users)
+const data=users.find(item=>item.email==user?.email)
 
-
-const isAdmin=false
-const isInstructor=false
+// const isAdmin=false
+// const isInstructor=false
  
 
 const dashboardLink=<>
 
 {
-  isAdmin &&<><li><Link className="bg-green-300" to="/dashboard/instructor">Manage User</Link></li>
+  data?.role=="admin" &&<><li><Link className="bg-green-300" to="/dashboard/instructor">Manage User</Link></li>
   <li><Link className="bg-green-300" to="/dashboard/classrequest">Manage Classes</Link></li>
-  </> || isInstructor &&<><li ><Link className="bg-green-300" to="/dashboard/addclass">Add class</Link><Link className="bg-green-300" to="/dashboard/myclass">My class</Link></li> 
+  </> ||  data?.role=="instructor" &&<><li ><Link className="bg-green-300" to="/dashboard/addclass">Add class</Link><Link className="bg-green-300" to="/dashboard/myclass">My class</Link></li> 
   </> ||<><li><Link className="bg-green-300" to="/dashboard/selectedClass">My Selected Class</Link></li>
   <li><Link className="bg-green-300" to="/dashboard/enrolledClass">My Enrolled Class</Link></li>
   </>

@@ -13,7 +13,32 @@ const {user}=useContext(AuthContext)
 console.log(usersData)
     return (
         <div>
-            <h1>This is selected class</h1>
+            <div className="overflow-x-auto">
+  <table className="table table-zebra">
+    {/* head */}
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Class Name</th>
+        <th>Instructor Name</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+     {
+        usersData.map((data,index)=>  <tr key={data._id}>
+            <th>{index+1}</th>
+            <td>{data.className}</td>
+            <td>{data.instructorName}</td>
+            <td>{data.price}</td>
+          </tr>)
+     }
+
+    
+      
+    </tbody>
+  </table>
+</div>
         </div>
     );
 };
