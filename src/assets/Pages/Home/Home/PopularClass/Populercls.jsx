@@ -41,7 +41,7 @@ const Populercls = () => {
                   <div className="badge badge-outline bg-orange-700 text-white">Available seats: {data.seats}</div>
                 </div>
                 <div>
-                  <Link to="/classDetails " className="bg-cyan-600 py-2 px-1 rounded"><button>Show Details</button></Link>
+                  <Link to={`/classDetails/${data._id}`}  className="bg-cyan-600 py-2 px-1 rounded"><button >Show Details</button></Link>
                 </div>
               </div>
             </div>

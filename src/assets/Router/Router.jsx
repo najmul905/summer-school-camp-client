@@ -40,7 +40,7 @@ import ErrorPage from "../Error/ErrorPage";
           element:<Singup></Singup>
         },
         {
-          path:"classDetails",
+          path:"classDetails/:id",
           element:<PrivetRouts><ClassDetails></ClassDetails></PrivetRouts>
 
         },
