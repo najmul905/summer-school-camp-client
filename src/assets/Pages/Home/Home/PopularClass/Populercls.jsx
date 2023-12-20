@@ -19,17 +19,17 @@ const Populercls = () => {
   return (
     <div>
       <div className="text-center w-1/2 mx-auto rounded-md text-white italic bg-indigo-500 p-5">
-        <h1 className="text-2xl">See.....</h1>
+        <h1 className="md:text-2xl text-1xl ">See.....</h1>
         <div className="w-1/2 mx-auto "><hr /></div>
-        <h1 className="text-5xl font-semibold">Our Popular Class</h1>
+        <h1 className="lg:text-5xl md:text-3xl font-semibold">Our Popular Class</h1>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-4 my-10 px-5 ">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto text-center mt-4">
         {
           popularCls.map(data => <div key={data._id}>
 
-            <div className="card w-auto bg-base-100 ">
-              <figure><img src={data.image} alt="Shoes" /></figure>
+            <div className="card card-compact md:h-96 h-72  bg-base-100 shadow-xl ">
+              <figure><img className="md:h-[40vh] md:w-[40vw] h-full w-full" src={data.image} alt="Shoes" /></figure>
               <div className="card-body">
                 <h2 className="card-title">
                   {data.className}

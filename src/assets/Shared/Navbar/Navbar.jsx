@@ -37,7 +37,8 @@ const handelLogOut=()=>{
         {navOption}
       </ul>
     </div>
-    <a className="btn btn-ghost normal-case text-xl italic">Summer School</a>
+    {/* <a className="btn btn-ghost normal-case text-xl italic">Summer School</a> */}
+    <img className="md:h-14 md:w-14 h-8 w-8 rounded-full" src="study care.png" alt="" />
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1 font-bold">
@@ -45,13 +46,15 @@ const handelLogOut=()=>{
     </ul>
   </div>
   <div className="navbar-end">
-    {
-      user&& <img className="w-[45px] rounded-full mx-2" src={user.photoURL} alt="" />
-    }
+   <div className="mr-2"> {
+      user&& <img className=" md:h-12 md:w-12 h-7 w-7 rounded-full" src={user.photoURL} alt="" />
+    }</div>
   
+<div>
 {
-  user?<><button className="p-2 rounded bg-orange-400 text-white font-bold" onClick={handelLogOut}>LogOut</button></>:<><Link to='/logIn'><button className="p-2 rounded bg-orange-400 text-white font-bold">LogIn</button></Link></>
+  user?<><button className="md:p-2 p-1 rounded bg-orange-400 text-white md:font-bold font-semibold" onClick={handelLogOut}>LogOut</button></>:<><Link to='/logIn'><button className="md:p-2 p-1 rounded bg-orange-400 text-white md:font-bold font-semibold">LogIn</button></Link></>
 }
+</div>
     
 
 

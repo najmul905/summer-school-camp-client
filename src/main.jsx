@@ -25,7 +25,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
    <HelmetProvider> 
    
     <QueryClientProvider client={queryClient}>
-    <div className='bg-blue-200  md:max-w-screen-lg mx-auto'>
+    <div className='bg-blue-200  '>
     <RouterProvider router={router} />
     </div>
     </QueryClientProvider>

@@ -12,22 +12,25 @@ const { data: users = [], } = useQuery(['users'], async () => {
 const instructor = users.filter(data => data.role == "instructor")
 
     return (
-        <div>
-          <div className="text-center w-1/2 mx-auto rounded-md text-white italic bg-indigo-500 p-5">
-          <h1 className="text-2xl">See.....</h1>
+        <div className="">
+          <div className="my-5 text-center w-1/2 mx-auto rounded-md text-white italic bg-indigo-500 p-5">
+          <h1 className="md:text-2xl text-1xl">See.....</h1>
           <div className="w-1/2 mx-auto "><hr /></div>
-          <h1 className="text-5xl font-semibold">Our Popular Instructor</h1>
+          <h1 className="lg:text-5xl md:text-3xl font-semibold">Our Popular Instructor</h1>
         </div>
-            <div className="grid md:grid-cols-3 mt-5 gap-4 px-5">
+            <div className="grid md:grid-cols-2  gap-12 ">
             {
                 instructor.map(data=> <div key={data._id}>
 
-<div className="card w-auto glass">
-  <figure><img className="h-40 w-full" src={data.image} alt="car!"/></figure>
-  <div className="card-body">
-    <h2 className="card-title">{data.name}</h2>
-    <p>{data.email}</p>
-   
+
+
+<div className="flex bg-white shadow-2xl p-4 rounded-md  items-center justify-between">
+  <div>
+    <img className=" h-24 w-20 rounded-t-box rounded-b-box"  src={data.image} alt="" />
+  </div>
+  <div className="">
+    <h1 className="text-1xl font-bold"><span className="font-bold">Name:</span> <span className="font-semibold">{data.name}</span></h1>
+    <h3 ><span className="Font-semibold">Email:</span> <span className="font-thin">{data.email}</span></h3>
   </div>
 </div>
                 </div>)

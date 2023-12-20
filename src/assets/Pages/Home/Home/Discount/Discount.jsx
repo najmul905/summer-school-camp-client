@@ -12,18 +12,18 @@ console.log(dis)
     return (
         <div>
              <div className="text-center w-1/2 mx-auto rounded-md my-10 text-white italic bg-indigo-500 p-5">
-          <h1 className="text-2xl">See.....</h1>
+          <h1 className="md:text-2xl text-1xl">See.....</h1>
           <div className="w-1/2 mx-auto "><hr /></div>
-          <h1 className="text-5xl font-semibold">Our Discount</h1>
+          <h1 className="lg:text-5xl md:text-3xl font-semibold">Our Discount</h1>
         </div>
-        <div className="grid grid-cols-3 gap-6 mb-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto text-center mt-5">
 {
     classData.map((item)=> <div key={item._id}>
 {
-    item?.discount &&<div className="card w-auto bg-base-100 shadow-xl">
-    <figure><img className="h-50 w-full" src={item.image} alt="Shoes" /></figure>
-    <div className="card-body">
-      <h2 className="card-title">
+    item?.discount &&<div className="card card-compact md:h-96 h-72  bg-base-100 shadow-xl">
+    <figure><img className="md:h-[40vh] md:w-[40vw] h-full w-full" src={item.image} alt="Shoes" /></figure>
+    <div className="">
+      <h2 className="">
         {item.className}
         <div className="badge badge-secondary"> Discount {item.discount}%</div>
       </h2>
