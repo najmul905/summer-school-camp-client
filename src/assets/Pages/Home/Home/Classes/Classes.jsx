@@ -27,7 +27,7 @@ fetch('https://school-summer-sport-camp-server.vercel.app/userData',{
 const classData=cart.filter(item=>item.status=="confirm")
 console.log(classData)
     return (
-        <div className="lg:mx-24 md:mx-20 mx-10">
+        <div className="lg:mx-24 md:mx-20 mx-10 mb-14">
     <div className="text-center my-6 w-1/2 mx-auto rounded-md text-white italic bg-indigo-500 p-5">
           <h1 className="md:text-2xl text-1xl">See.....</h1>
           <div className="w-1/2 mx-auto "><hr /></div>

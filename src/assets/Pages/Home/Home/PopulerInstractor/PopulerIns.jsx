@@ -18,13 +18,13 @@ const instructor = users.filter(data => data.role == "instructor")
           <div className="w-1/2 mx-auto "><hr /></div>
           <h1 className="lg:text-5xl md:text-3xl font-semibold">Our Popular Instructor</h1>
         </div>
-            <div className="grid md:grid-cols-2  gap-12 ">
+            <div className="md:grid md:md:grid-cols-2 md:gap-12 ">
             {
                 instructor.map(data=> <div key={data._id}>
 
 
 
-<div className="flex bg-white shadow-2xl p-4 rounded-md  items-center justify-between">
+<div className="md:flex bg-white shadow-2xl p-4  my-2 rounded-md items-center md:justify-between">
   <div>
     <img className=" h-24 w-20 rounded-t-box rounded-b-box"  src={data.image} alt="" />
   </div>
@@ -33,6 +33,8 @@ const instructor = users.filter(data => data.role == "instructor")
     <h3 ><span className="Font-semibold">Email:</span> <span className="font-thin">{data.email}</span></h3>
   </div>
 </div>
+
+
                 </div>)
             }
         </div>
